@@ -1,12 +1,17 @@
 {
-  "name": "node-demo",
+  "name": "node",
   "version": "1.0.0",
   "description": "",
-  "main": "main.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "download-git-repo": "^3.0.2"
+  },
+  "devDependencies": {
+    "ora": "^4.0.3"
+  }
 }
