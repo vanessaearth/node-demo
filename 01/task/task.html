@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // setTimeout(function () {
+      //   new Promise(function (resolve, reject) {
+      //     // console.log('异步-宏任务-微任务-promise');
+      //     resolve();
+
+      //   }).then(function () {
+      //     console.log('异步-宏任务-微任务then')
+
+      //   })
+      //   console.log('异步-宏任务');
+
+      // }, 0)
+      new Promise(function (resolve, reject) {
+        // console.log('异步-微任务promise');
+        console.log('马上执行for循环啦');
+        for (var i = 0; i < 10000; i++) {
+          console.log('for循环啦');
+          i == 99 && resolve();
+        }
+        resolve();
+
+      }).then(function () {
+        console.log('异步-微任务then')
+
+      })
+      console.log('同步任务')
+    </script>
+  </body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      setTimeout(() => {
+        console.log('异步1任务time1');
+        new Promise(function (resolve, reject) {
+          console.log('异步1宏任务promise');
+          setTimeout(() => {
+            console.log('异步1任务time2');
+          }, 0);
+          resolve();
+        }).then(function () {
+          console.log('异步1微任务then')
+        })
+      }, 0);
+      console.log('同步任务');
+      setTimeout(() => {
+        console.log('异步2任务time2');
+
+      }, 0);
+      new Promise(function (resolve, reject) {
+        console.log('宏任务promise');
+        // reject();
+        resolve();
+      }).then(function () {
+        console.log('微任务then')
+      }).catch(function () {
+        console.log('微任务catch')
+      })
+      console.log('同步任务2');
+    </script>
+  </body>
+
+</html>

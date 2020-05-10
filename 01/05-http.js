@@ -31,7 +31,7 @@ const serve = http.createServer((request, response) => {
 
   // response.end('end')
 })
-serve.listen(3000)
+serve.listen(3000, () => { console.log('start at 3000') })
 
 function getPrototypeChain (obj) {
   const protoChain = []

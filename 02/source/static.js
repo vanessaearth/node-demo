@@ -30,7 +30,7 @@ module.exports = (dirPath = './public') => {
           const content = fs.readFileSync(filePath)
           ctx.body = content
         }
-      } catch{
+      } catch (e) {
         ctx.body = '404,not found'
       }
     } else {

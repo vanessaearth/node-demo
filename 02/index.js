@@ -1,4 +1,5 @@
-const Koa = require('./MyKoa')
+const Koa = require('koa')
+// const Koa = require('./MyKoa')
 let app = new Koa()
 // app.use(async (ctx, next) => {
 //   const start = new Date().getTime()

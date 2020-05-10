@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="file" id="file">
+    <script>
+      let file = document.getElementById('file')
+      file.onchange = function () {
+        var _files = file.files
+        if (!_files.length) return
+        if (_files.length === 1) {
+          var xhr = new XMLHttpRequest()
+          xhr.open('POST', 'http://localhost:3200/upload');
+          xhr.setRequestHeader('file-name', file.files[0].name);
+          xhr.send(_files[0])
+        }
+      }
+    </script>
+  </body>
+
+</html>
